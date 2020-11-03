@@ -19,10 +19,10 @@
     "precypress": "node ./cypress-install.js",
     "cypress": "cypress",
     "cypress:install": "cypress install && echo 'for use with ./cypress-install.js'",
-    "cypress:dev:run": "npm run cypress -- run --config baseUrl=http://localhost:8000",
-    "cypress:dev:watch": "npm run cypress -- open --config baseUrl=http://localhost:8000",
-    "cypress:prd:run": "npm run cypress -- run --config baseUrl=http://localhost:8000",
-    "cypress:prd:watch": "npm run cypress -- open --config baseUrl=http://localhost:8000",
+    "cypress:dev:run": "npm run cypress -- run --config baseUrl=http://localhost:$PORT",
+    "cypress:dev:watch": "npm run cypress -- open --config baseUrl=http://localhost:$PORT",
+    "cypress:prd:run": "npm run cypress -- run --config baseUrl=http://localhost:$PORT",
+    "cypress:prd:watch": "npm run cypress -- open --config baseUrl=http://localhost:$PORT",
     "develop": "npm-run-all ensure-env -p develop:*",
     "develop:client": "cd ./client && npm run develop",
     "develop:server": "cd ./api-server && npm run develop",
@@ -54,7 +54,8 @@
     "test:curriculum-js": "jest --rootDir ./curriculum",
     "test:server": "cd ./api-server && npm test",
     "test:tools": "jest ./tools",
-    "test:utils": "jest --rootDir ./utils"
+    "test:utils": "jest --rootDir ./utils",
+    "heroku:postinstall": "npm run build"
   },
   "devDependencies": {
     "@freecodecamp/eslint-config": "^2.0.2",
